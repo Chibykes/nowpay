@@ -22,7 +22,7 @@ export default function Dashboard() {
       </Head>
 
 
-      <main className="w-full h-screen max-w-sm mx-auto">
+      <main className="w-full h-screen max-w-sm mx-auto p-4">
 
         <div className='flex items-center py-4'>
             <div className='flex items-center space-x-3'>

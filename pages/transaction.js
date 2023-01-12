@@ -35,11 +35,11 @@ export default function Home() {
       </Head>
 
 
-      <main className="w-full h-screen max-w-md mx-auto">
+      <main className="w-full h-screen max-w-md mx-auto p-4">
 
         <p className='text-center font-bold py-4'>Receipt</p>
 
-        <div className='p-4 space-y-4'>
+        <div className='py-4 space-y-4'>
 
             {/* <div className='flex justify-between items-center gap-4'>
               <div className='space-y-4'>

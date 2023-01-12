@@ -46,13 +46,13 @@ export default function Dashboard() {
       </Head>
 
 
-      <main className="w-full h-screen max-w-sm mx-auto">
+      <main className="w-full h-screen max-w-sm mx-auto p-4">
 
         <div className='py-4'>
             <p className='text-xs text-center font-bold pb-3'>Pay Bills</p>
             <form onSubmit={handleSubmit} className='pt-4 space-y-5'>
 
-              <div className='bg-white border border-purple-600 rounded-md py-2 px-3'>
+              <div className='bg-white border border-purple-600 rounded-sm py-2 px-3'>
                 <input
                   name="tag"
                   type="text"
@@ -63,7 +63,7 @@ export default function Dashboard() {
                 />
               </div>
 
-              <div className='bg-white border border-purple-600 rounded-md py-2 px-3'>
+              <div className='bg-white border border-purple-600 rounded-sm py-2 px-3'>
                 <input
                   name="amount"
                   type="number"
@@ -74,7 +74,7 @@ export default function Dashboard() {
                 />
               </div>
 
-              <div className='bg-white border border-purple-600 rounded-md py-2 px-3'>
+              <div className='bg-white border border-purple-600 rounded-sm py-2 px-3'>
                 <input
                   name="naration"
                   type="text"
@@ -90,13 +90,13 @@ export default function Dashboard() {
                 {error}
               </div>}
 
-              <button type='submit' className='w-full text-xs text-center font-bold text-white bg-purple-600 border-2 border-purple-600 rounded-md py-4 px-3'>
+              <button type='submit' className='w-full text-xs text-center font-bold text-white bg-purple-600 border-2 border-purple-600 rounded-sm py-4 px-3'>
                   Pay
               </button>
 
               <div className='py-2 text-xs text-center font-bold'>Or</div>
 
-              <button className='flex gap-4 justify-center items-center w-full text-xs text-center font-bold text-white bg-black border-2 border-black rounded-md py-4 px-3'>
+              <button className='flex gap-4 justify-center items-center w-full text-xs text-center font-bold text-white bg-black border-2 border-black rounded-sm py-4 px-3'>
                   <MdOutlineQrCodeScanner className="text-xl text-white" />
                   Scan
               </button>

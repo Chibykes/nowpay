@@ -47,7 +47,7 @@ export default function Dashboard() {
       </Head>
 
 
-      <main className="w-full h-screen max-w-sm mx-auto">
+      <main className="w-full h-screen max-w-sm mx-auto p-4">
 
         <div className='py-4'>
             <p className='text-xs text-center font-bold pb-3'>Fund Wallet</p>
