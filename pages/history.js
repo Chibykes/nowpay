@@ -9,7 +9,7 @@ export default function Dashboard() {
   const [transactions, setTransctions] = useState([]);
 
   useEffect(() => {
-    setTransctions(JSON.parse(localStorage.getItem('transactions')).reverse() || []);
+    setTransctions(JSON.parse(localStorage.getItem('transactions'))?.reverse() || []);
   }, []);
 
   return (
