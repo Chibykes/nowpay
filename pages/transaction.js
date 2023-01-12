@@ -10,19 +10,6 @@ import { useRouter } from 'next/router';
 import spliter from '../hooks/spliter';
 
 
-// Response
-// {
-//   message : "Success"
-//   redirecturl : "http://localhost:8080/verify?trxref=1669316941348&reference=1669316941348"
-//   reference : "1669316941348"
-//   response : "Approved"
-//   status : "success"
-//   trans : "2310511113"
-//   trxref : "1669316941348"
-// }
-
-
-
 
 export default function Home() {
 
@@ -34,7 +21,7 @@ export default function Home() {
   
   useEffect(() => {
 
-    let info = JSON.parse(localStorage.getItem('transactions')).find(t => t.data.reference === reference);
+    let info = JSON.parse(localStorage.getItem('transactions')).find(t => t.reference === reference);
     setTransaction(info);
     
   }, [reference]);
@@ -54,7 +41,7 @@ export default function Home() {
 
         <div className='p-4 space-y-4'>
 
-            <div className='flex justify-between items-center gap-4'>
+            {/* <div className='flex justify-between items-center gap-4'>
               <div className='space-y-4'>
                 <div className='flex justify-between items-center gap-4'>
                   <div className='relative w-10 h-10 mx-auto'>
@@ -75,31 +62,35 @@ export default function Home() {
                   value={reference || "0000000000000"}
                 />
               </div>
-            </div>
+            </div> */}
 
-            <div className='bg-[#0c0c0c] divide-y divide-zinc-800 p-4 rounded-lg'>
-                <div className='py-2'>
+            <p className={`${transaction?.type === "credit" ? "text-green-500" : "text-red-500"} font-bold text-4xl text-center`}>&#8358;{Number(transaction?.amount).toLocaleString()}</p>
+
+            <div className='bg-neutral-100 divide-y divide-neutral-200 p-4 rounded-lg'>
+                <div className='py-2 space-y-2'>
                     <p className='text-xs text-zinc-700'>Type</p>
-                    <p className='font-bold'>{transaction?.paymentFor}</p>
+                    <p className='text-sm font-bold'>{transaction?.type}</p>
                 </div>
-                <div className='py-2'>
-                    <p className='text-xs text-zinc-700'>Fullname</p>
-                    <p className='font-bold'>{transaction?.fullname}</p>
+                <div className='py-2 space-y-2'>
+                    <p className='text-xs text-zinc-700'>Details</p>
+                    <p className='text-sm font-bold'>{transaction?.details}</p>
                 </div>
-                <div className='py-2'>
+                <div className='py-2 space-y-2'>
                     <p className='text-xs text-zinc-700'>Email</p>
-                    <p className='font-bold'>{transaction?.email}</p>
+                    <p className='text-sm font-bold'>{transaction?.email}</p>
                 </div>
-                <div className='py-2'>
-                    <p className='text-xs text-zinc-700'>Phone</p>
-                    <p className='font-bold'>{transaction?.phone}</p>
+                {transaction?.tag && <div className='py-2 space-y-2'>
+                    <p className='text-xs text-zinc-700'>To</p>
+                    <p className='text-sm font-bold'>{transaction?.tag}</p>
+                </div>}
+                <div className='py-2 space-y-2'>
+                    <p className='text-xs text-zinc-700'>Reference</p>
+                    <p className='text-sm font-bold'>{transaction?.reference}</p>
                 </div>
             </div>
-
-            <p className='font-bold text-4xl text-center'>&#8358;{Number(transaction?.amount).toLocaleString()}</p>
 
             <div className=''>
-                <p onClick={() => window.print()} className='flex items-center justify-center gap-2 p-3 bg-sky-600 rounded-md bg-transparent w-full text-center text-sm font-bold'>
+                <p onClick={() => window.print()} className='w-1/2 mx-auto text-white flex items-center justify-center gap-2 p-3 bg-purple-600 rounded-md bg-transparent w-full text-center text-sm font-bold'>
                     Print
                     <BsPrinterFill className='text-white' />
                 </p>
